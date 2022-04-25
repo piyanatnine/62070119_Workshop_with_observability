@@ -1,5 +1,30 @@
 version: "3.9"
 service:
+  service1:
+        container_name: service1
+        build: .
+        image: node-run
+        ports:
+            - "3000:3000"
+        command: npm run service1
+        environment:
+            TZ: Asia/Bangkok
+  service2:
+        container_name: service2
+        image: node-run
+        ports:
+            - "3001:3001"
+        command: npm run service2
+        environment:
+            TZ: Asia/Bangkok
+  service3:
+        container_name: service3
+        image: node-run
+        ports:
+            - "3002:3002"
+        command: node service3.js
+        environment:
+            TZ: Asia/Bangkok
   zipkin:
         container_name: zipkin
         image: openzipkin/zipkin
